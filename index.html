@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warren Buffett Giving Foundation | Apply for Grants</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --text: #4b5563;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .apply-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .apply-btn:hover {
+            background-color: #e69108;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: #152c6c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Warren Section */
+        .about-warren {
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .quote {
+            padding: 2rem;
+            margin: 2rem 0;
+            background-color: #f8fafc;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        /* Grant Areas Section */
+        .grant-areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .grant-area-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            background-color: var(--white);
+        }
+        
+        .grant-area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .grant-area-image {
+            height: 200px;
+            position: relative;
+        }
+        
+        .grant-area-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .grant-area-info {
+            padding: 1.5rem;
+        }
+        
+        .grant-area-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .grant-area-info p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+            text-align: center;
+        }
+        
+        .contact-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .contact-email {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .contact-steps {
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .contact-steps h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .step-list {
+            list-style-position: inside;
+            counter-reset: step-counter;
+        }
+        
+        .step-list li {
+            position: relative;
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            counter-increment: step-counter;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #bbb;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-card {
+                padding: 2rem 1rem;
+            }
+            
+            .contact-email {
+                font-size: 1.2rem;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Warren<span>Foundation</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#grants">Grant Areas</a></li>
+                <li><a href="#contact" class="apply-btn">Apply for Grant</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Warren Buffett Giving Foundation</h1>
+            <p>Empowering transformative change through strategic philanthropy and impactful grants that create lasting value for society.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Apply for a Grant</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Warren Section -->
+    <section class="section about-warren" id="about">
+        <div class="section-title">
+            <h2>About Warren Buffett</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Legendary Investor & Philanthropist</h3>
+                <p>Warren Buffett is one of the world's most successful investors and business magnates, serving as the chairman and CEO of Berkshire Hathaway. Born in 1930 in Omaha, Nebraska, Buffett developed an interest in business and investing at a young age.</p>
+                <p>Beyond his extraordinary business achievements, Buffett is known for his commitment to philanthropy. In 2006, he pledged to donate over 99% of his wealth to charitable causes, primarily through the Bill & Melinda Gates Foundation and through foundations established by his family members.</p>
+                <blockquote class="quote">
+                    "If you're in the luckiest 1% of humanity, you owe it to the rest of humanity to think about the other 99%."
+                </blockquote>
+                <p>Through the Warren Foundation, we continue his legacy of thoughtful, effective giving that focuses on solving some of society's most pressing challenges while creating lasting, positive change for future generations.</p>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/600/400" alt="Warren Buffett">
+            </div>
+        </div>
+    </section>
+
+    <!-- Grant Areas Section -->
+    <section class="section" id="grants">
+        <div class="section-title">
+            <h2>Grant Focus Areas</h2>
+        </div>
+        <div class="grant-areas-grid">
+            <div class="grant-area-card">
+                <div class="grant-area-image">
+                    <img src="/api/placeholder/400/200" alt="Global Health Initiative">
+                </div>
+                <div class="grant-area-info">
+                    <h3>Global Health</h3>
+                    <p>Supporting innovative approaches to healthcare access, disease prevention, and medical research that improves health outcomes for underserved populations worldwide.</p>
+                </div>
+            </div>
+            <div class="grant-area-card">
+                <div class="grant-area-image">
+                    <img src="/api/placeholder/400/200" alt="Education Access">
+                </div>
+                <div class="grant-area-info">
+                    <h3>Education</h3>
+                    <p>Investing in educational excellence, from early childhood development to higher education, with special focus on expanding access to quality education for disadvantaged communities.</p>
+                </div>
+            </div>
+            <div class="grant-area-card">
+                <div class="grant-area-image">
+                    <img src="/api/placeholder/400/200" alt="Economic Opportunity">
+                </div>
+                <div class="grant-area-info">
+                    <h3>Economic Opportunity</h3>
+                    <p>Creating pathways out of poverty through financial inclusion, entrepreneurship support, workforce development, and building more equitable economic systems.</p>
+                </div>
+            </div>
+            <div class="grant-area-card">
+                <div class="grant-area-image">
+                    <img src="/api/placeholder/400/200" alt="Environmental Sustainability">
+                </div>
+                <div class="grant-area-info">
+                    <h3>Climate Change & Environment</h3>
+                    <p>Addressing our planet's most pressing environmental challenges through conservation efforts, clean energy innovation, and sustainable development practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-title">
+            <h2>Apply for a Grant</h2>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3 class="contact-title">Contact Our Receptionist to Apply</h3>
+            <a href="mailto:grants@warrenfoundation.org" class="contact-email">grants@warrenfoundation.org</a>
+            <p>To apply for a grant from the Warren Buffett Giving Foundation, please contact our receptionist via the email address above.</p>
+            
+            <div class="contact-steps">
+                <h4>Application Process:</h4>
+                <ul class="step-list">
+                    <li>Send an initial email expressing your interest and briefly describing your organization and project.</li>
+                    <li>Our receptionist will respond with detailed application requirements and instructions.</li>
+                    <li>Submit your completed application according to the provided guidelines.</li>
+                    <li>Applications are reviewed quarterly by our grant committee.</li>
+                    <li>Successful applicants will be contacted directly for further steps.</li>
+                </ul>
+            </div>
+            
+            <a href="mailto:grants@warrenfoundation.org" class="btn btn-primary">Email Now to Apply</a>
+        </div>
+    </section>
+
+    <!-- Scholarship Section -->
+    <section class="section" style="background-color: var(--light);">
+        <div class="section-title">
+            <h2>Executive MBA Scholarship Program</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; max-width: 900px; margin: 0 auto; text-align: center;">
+            <div style="margin-bottom: 2rem;">
+                <img src="/api/placeholder/600/400" alt="Scholarship Award Ceremony" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+            <h3 style="color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem;">Supporting Future Business Leaders</h3>
+            <p style="margin-bottom: 1.5rem;">Our foundation proudly supports future business leaders through our Executive MBA Scholarship Program. Each year, we award scholarships to outstanding candidates who demonstrate exceptional potential in investment strategies and business innovation.</p>
+            <p style="margin-bottom: 1.5rem;">The Warren Buffett Investment Challenge is our flagship educational initiative, providing students with hands-on experience in portfolio management and investment analysis while competing for scholarship funds.</p>
+            <p style="font-weight: 600; color: var(--secondary);">Since 2015, we have awarded over $250,000 in educational scholarships to 45 promising business students.</p>
+            <a href="mailto:scholarships@warrenfoundation.org" class="btn btn-primary" style="margin-top: 1.5rem;">Email to Learn More About Scholarships</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Warren Foundation</h3>
+                <p>A philanthropic organization dedicated to empowering transformative change through strategic giving and impactful grants.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Giving Street, Omaha, NE 68102</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> grants@warrenfoundation.org</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#grants">Grant Areas</a></li>
+                    <li><a href="#contact">Apply for Grant</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Warren Buffett Giving Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
